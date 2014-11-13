@@ -20,8 +20,13 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'spring',        group: :development
 
+group :test do
+  gem 'factory_girl_rails'
+end
+
 group :development, :test do
   gem 'sqlite3'
+  gem 'rspec-rails'
 end
 
 gem 'devise'
