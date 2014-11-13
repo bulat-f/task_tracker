@@ -1,2 +1,14 @@
-<h1>StaticPages#index</h1>
-<p>Find me in app/views/static_pages/index.html.erb</p>
+.row
+  - if user_signed_in?
+    .col-md-12
+      %h1 Hello user
+      = link_to "Events", events_path, class: "btn btn-info"
+  - else
+    .col-md-4
+      .row.well
+        = render 'shared/signin_form'
+      .row.well
+        = render 'shared/signup_form'
+    .col-md-8
+      %p This site is a todo list with the calendar, although of a name Event Manager
+      = link_to "On GitHub", 'https://github.com/fatbulat/event_manager'
