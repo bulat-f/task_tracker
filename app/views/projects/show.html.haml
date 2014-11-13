@@ -1,0 +1,8 @@
+%h1= @project.title
+%p= @project.description
+%br
+= link_to @project.creater do
+  %span.label.label-warning= @project.creater
+- if @project.correct_admin?(current_user)
+  = link_to @project, method: :delete do
+    %span.label.label-danger Delete

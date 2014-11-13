@@ -1,0 +1,7 @@
+.panel.panel-default
+  .panel-body
+    %h5
+      = link_to user, user
+      -if user.admin?
+        .label.label-primary Admin
+
