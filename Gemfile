@@ -33,6 +33,8 @@ gem 'devise'
 
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'state_machine'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

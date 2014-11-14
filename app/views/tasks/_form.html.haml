@@ -1,0 +1,12 @@
+= form_for [project, task], html: { multipart: true } do |f|
+  .form-group
+    = f.label :title
+    = f.text_field :title, class: 'form-control'
+  .form-group
+    = f.label :description
+    = f.text_area :description, class: 'form-control', rows: 10
+  .form-group
+    = f.label :performer_id
+    = f.select :performer_id, User.all.map{ |user| [user, user.id] }, class: 'form-control'
+  .form-group
+    = f.submit task.new_record? ? 'Create' : 'Update', class: 'btn btn-lg btn-primary'

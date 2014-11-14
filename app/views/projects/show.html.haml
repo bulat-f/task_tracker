@@ -3,6 +3,6 @@
 %br
 = link_to @project.creater do
   %span.label.label-warning= @project.creater
-- if @project.correct_admin?(current_user)
+- if @project.creater?(current_user)
   = link_to @project, method: :delete do
     %span.label.label-danger Delete

@@ -1,0 +1,9 @@
+.panel.panel-default
+  .panel-heading
+    %h4
+      = link_to task.title, task
+      %small
+        %span.label.label-default= task.state_name
+  .panel-body
+    = link_to task.project, task.project
+    = render 'users', task: task

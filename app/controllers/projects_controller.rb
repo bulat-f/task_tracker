@@ -1,8 +1,8 @@
 class ProjectsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_project,    only: [:show, :edit, :update, :destroy]
-  before_action :admin?,         only: [:edit, :update, :new, :create, :destroy]
-  before_action :correct_admin?, only: [:edit, :update, :destroy]
+  before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :admin?,      only: [:edit, :update, :new, :create, :destroy]
+  before_action :creater?,    only: [:edit, :update, :destroy]
 
   def index
     @projects = Project.all
@@ -63,8 +63,8 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def correct_admin?
-    unless @project.correct_admin?(current_user)
+  def creater?
+    unless @project.creater?(current_user)
       flash[:warning] = 'You are not admin in this project'
       redirect_to root_path
     end

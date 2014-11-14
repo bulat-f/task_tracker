@@ -3,7 +3,10 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :projects
+  resources :projects do
+    resources :tasks, only: [:new, :create]
+  end
+  resources :tasks, only: [:index, :show, :edit, :update, :destroy]
   resources :users, only: [:index, :show, :new, :create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -37,7 +40,7 @@ Rails.application.routes.draw do
   #   resources :products do
   #     resources :comments, :sales
   #     resource :seller
-  #   end
+  #   en
 
   # Example resource route with more complex sub-resources:
   #   resources :products do

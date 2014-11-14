@@ -1,0 +1,9 @@
+%h1
+  = @task.title
+  %small
+    %span.label.label-default= @task.state_name
+%p= @task.description
+%p
+  - @task.state_events.map do |event|
+    = link_to event, '#', class: 'btn btn-default'
+= render 'users', task: @task
