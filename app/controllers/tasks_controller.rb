@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_task,    only: [:show, :edit, :update, :destroy]
+  before_action :set_task,    only: [:show, :edit, :update, :destroy, :event]
   before_action :set_project, only: [:new, :create]
   before_action :creater?,    only: [:edit, :update, :destroy]
   before_action :member?,     only: [:new, :create]
@@ -44,6 +44,11 @@ class TasksController < ApplicationController
       flash[:success] = 'Task deleted'
       redirect_to project_path
     end
+  end
+
+  def event
+    @task.send(params[:event])
+    redirect_to @task
   end
 
   private

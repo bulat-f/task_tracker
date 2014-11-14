@@ -6,7 +6,11 @@ Rails.application.routes.draw do
   resources :projects do
     resources :tasks, only: [:new, :create]
   end
-  resources :tasks,       only: [:index, :show, :edit, :update, :destroy]
+  resources :tasks,       only: [:index, :show, :edit, :update, :destroy] do
+    collection do
+      post 'event'
+    end
+  end
   resources :users,       only: [:index, :show, :new, :create, :destroy]
   resources :memberships, only: [:create, :destroy]
 

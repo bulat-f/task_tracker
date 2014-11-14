@@ -5,5 +5,8 @@
 %p= @task.description
 %p
   - @task.state_events.map do |event|
-    = link_to event, '#', class: 'btn btn-default'
+    = form_tag({action: :event}, method: :post) do
+      = hidden_field_tag(:id, @task.id)
+      = hidden_field_tag(:event, event)
+      = submit_tag event, class: 'btn btn-default'
 = render 'users', task: @task

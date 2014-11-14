@@ -1,16 +1,16 @@
 %h1 Tasks
 .row
   .col-md-3
-    = render @tasks.newest
+    = render @tasks.new_tasks
   .col-md-3
     = render @tasks.queue
   .col-md-3
     = render @tasks.assigned
   .col-md-3
-    = render @tasks.performed
+    = render @tasks.performing
 .row
   .col-md-3
-    = render @tasks.checked
+    = render @tasks.checking
   .col-md-3
     = render @tasks.ready
   .col-md-2
