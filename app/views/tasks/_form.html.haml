@@ -7,6 +7,9 @@
     = f.text_area :description, class: 'form-control', rows: 10
   .form-group
     = f.label :performer_id
-    = f.select :performer_id, User.all.map{ |user| [user, user.id] }, class: 'form-control'
+    = f.select :performer_id, project.members.map{ |user| [user, user.id] }, class: 'form-control'
+  .form-group
+    = f.label :evaluation
+    = f.text_field :evaluation, class: 'form-control'
   .form-group
     = f.submit task.new_record? ? 'Create' : 'Update', class: 'btn btn-lg btn-primary'

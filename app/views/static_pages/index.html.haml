@@ -1,8 +1,7 @@
 .row
   - if user_signed_in?
     .col-md-12
-      %h1 Hello user
-      = link_to "Events", '#', class: "btn btn-info"
+      %h1= "Hello, #{current_user}!"
   - else
     .col-md-4
       .row.well
@@ -10,5 +9,4 @@
       .row.well
         = render 'shared/signup_form'
     .col-md-8
-      %p This site is a todo list with the calendar, although of a name Event Manager
-      = link_to "On GitHub", 'https://github.com/fatbulat/event_manager'
+      = link_to "On GitHub", 'https://github.com/fatbulat'

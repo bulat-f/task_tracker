@@ -9,6 +9,10 @@ class Project < ActiveRecord::Base
   end
 
   def creater?(user)
-    user.admin && creater.eql?(user)
+    user.admin? && creater.eql?(user)
+  end
+
+  def member?(user)
+    user.admin? || members.find_by_id(user.id)
   end
 end

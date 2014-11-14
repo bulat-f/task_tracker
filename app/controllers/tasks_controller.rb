@@ -54,7 +54,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:title, :description, :performer_id)
+    params.require(:task).permit(:title, :description, :performer_id, :evaluation)
   end
 
   def set_task
@@ -70,6 +70,7 @@ class TasksController < ApplicationController
   end
 
   def member?
+    redirect_to @project unless @project.member?(current_user)
   end
 
 end
