@@ -56,13 +56,6 @@ class ProjectsController < ApplicationController
     @project = Project.find_by_id(params[:id])
   end
 
-  def admin?
-    unless current_user.admin?
-      flash[:warning] = 'You are not admin'
-      redirect_to root_path
-    end
-  end
-
   def creater?
     unless @project.creater?(current_user)
       flash[:warning] = 'You are not admin in this project'

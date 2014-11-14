@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   resources :projects do
     resources :tasks, only: [:new, :create]
   end
-  resources :tasks, only: [:index, :show, :edit, :update, :destroy]
-  resources :users, only: [:index, :show, :new, :create, :destroy]
+  resources :tasks,       only: [:index, :show, :edit, :update, :destroy]
+  resources :users,       only: [:index, :show, :new, :create, :destroy]
+  resources :memberships, only: [:create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,5 +1,9 @@
 %h1= @project.title
 %p= @project.description
+%p
+  - @project.members.map do |member|
+    = link_to member, member, class: 'btn btn-default'
+= render 'add_member', project: @project
 %br
 = link_to @project.creater do
   %span.label.label-warning= @project.creater
