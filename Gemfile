@@ -7,7 +7,6 @@ gem 'sass-rails', '~> 4.0.3'
 gem 'haml-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
-
 gem 'bootstrap-sass', '~>3.2.0'
 
 gem 'therubyracer',  platforms: :ruby
@@ -30,12 +29,12 @@ group :development, :test do
 end
 
 gem 'devise'
-
+gem 'cancan'
 gem 'bcrypt', '~> 3.1.7'
 
-gem 'state_machine'
+gem 'rails_admin'
 
-gem 'cancan'
+gem 'state_machine'
 
 gem 'acts-as-taggable-on'
 
