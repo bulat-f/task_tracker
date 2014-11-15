@@ -6,7 +6,11 @@ class TasksController < ApplicationController
   before_action :member?,     only: [:new, :create]
 
   def index
-    @tasks = current_user.tasks
+    if params[:tag]
+      @tasks = Task.tagged_with(params[:tag])
+    else
+      @tasks = current_user.tasks
+    end
   end
 
   def show
@@ -54,7 +58,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:title, :description, :performer_id, :evaluation)
+    params.require(:task).permit(:title, :description, :performer_id, :evaluation, :tag_list)
   end
 
   def set_task

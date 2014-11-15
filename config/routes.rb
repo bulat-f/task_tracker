@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     get '/logout' => 'devise/sessions#destroy'
   end
 
+  get 'tags/:tag', to: 'tasks#index', as: :tag
+
   resources :projects do
     resources :tasks, only: [:new, :create]
   end

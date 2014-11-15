@@ -37,6 +37,8 @@ gem 'state_machine'
 
 gem 'cancan'
 
+gem 'acts-as-taggable-on'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

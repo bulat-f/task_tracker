@@ -1,4 +1,5 @@
 class Task < ActiveRecord::Base
+  acts_as_taggable
   belongs_to :project
   belongs_to :creater,   class_name: 'User'
   belongs_to :performer, class_name: 'User'

@@ -4,6 +4,9 @@
     %span.label.label-default= @task.state_name
 %p= @task.description
 %p
+  tags:
+  = raw @task.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
+%p
   - @task.state_events.map do |event|
     = form_tag({action: :event}, method: :post) do
       = hidden_field_tag(:id, @task.id)
