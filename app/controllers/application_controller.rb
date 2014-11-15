@@ -5,11 +5,9 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  def admin?
-    unless current_user.admin?
-      flash[:warning] = 'You are not admin'
-      redirect_to root_path
-    end
+  rescue_from CanCan::AccessDenied do |exception|
+    flash[:warning] = exception.message
+    redirect_to root_url
   end
 
   protected

@@ -1,6 +1,4 @@
 class MembershipsController < ApplicationController
-  before_action :admin?
-
   def create
     @membership = Membership.new(membership_params)
     if @membership.save

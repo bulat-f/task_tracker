@@ -1,0 +1,19 @@
+= form_tag('/user', method: :post) do
+  .form-group
+    = label_tag :name
+    = text_field_tag :name
+
+  .form-group
+    = label_tag :email
+    = email_field_tag :email
+
+  .form-group
+    = label_tag :password
+    = password_field_tag :password
+
+  .form-group
+    = label_tag :password_confirmation
+    = password_field_tag :password_confirmation
+
+  .form-group
+    = submit_tag 'Create user', class: 'btn btn-primary'

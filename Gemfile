@@ -35,6 +35,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'state_machine'
 
+gem 'cancan'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

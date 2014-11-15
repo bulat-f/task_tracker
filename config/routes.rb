@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   root 'static_pages#index'
 
   devise_for :users
+  devise_scope :user do
+    get '/login' => 'devise/sessions#new'
+    get '/logout' => 'devise/sessions#destroy'
+  end
 
   resources :projects do
     resources :tasks, only: [:new, :create]
@@ -11,7 +15,8 @@ Rails.application.routes.draw do
       post 'event'
     end
   end
-  resources :users,       only: [:index, :show, :new, :create, :destroy]
+  resources :users,       only: [:index, :show]
+  resources :user, controller: 'user', only: [:new, :create, :destroy]
   resources :memberships, only: [:create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
