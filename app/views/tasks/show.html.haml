@@ -6,10 +6,12 @@
 %p
   tags:
   = raw @task.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
-%p
+.btn-group
   - @task.state_events.map do |event|
     = form_tag({action: :event}, method: :post) do
       = hidden_field_tag(:id, @task.id)
       = hidden_field_tag(:event, event)
       = submit_tag event, class: 'btn btn-default'
 = render 'users', task: @task
+- if @task.creater?(current_user)
+  = link_to 'Delete task', @task, method: :delete, class: 'btn btn-sm btn-danger'

@@ -46,7 +46,7 @@ class TasksController < ApplicationController
   def destroy
     if @task.destroy
       flash[:success] = 'Task deleted'
-      redirect_to project_path
+      redirect_to root_path
     end
   end
 
